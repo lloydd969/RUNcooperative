@@ -63,4 +63,5 @@ public class RuncooperativeApplication {
 
 		return new JdbcTemplate(secondaryDataSource);
 	}
+
 }

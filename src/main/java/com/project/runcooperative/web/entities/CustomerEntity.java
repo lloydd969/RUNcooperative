@@ -17,7 +17,7 @@ public class CustomerEntity{
     private String lastname;
 
     private String PhoneNumber;
-    private String EmailAddress;
+    private String emailAddress;
     private String Salary;
     private int FixedRate;
     @OneToMany(cascade = CascadeType.ALL,
@@ -61,11 +61,11 @@ public class CustomerEntity{
     }
 
     public String getEmailAddress() {
-        return EmailAddress;
+        return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
-        EmailAddress = emailAddress;
+        this.emailAddress = emailAddress;
     }
 
     public String getFirstname() {

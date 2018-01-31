@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.List;
@@ -38,7 +39,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login/authenticate", method = RequestMethod.POST)
-    public String AuthenticateLogin(@ModelAttribute("personnel") PersonnelEntity personnelEntity, Model model, BindingResult result, HttpServletRequest req){
+    public String AuthenticateLogin(@ModelAttribute("personnel") PersonnelEntity personnelEntity, Model model, BindingResult result, HttpServletRequest req, HttpServletResponse response){
 
         if(result.hasErrors()){
             System.out.println(result.getAllErrors().toString());
@@ -58,7 +59,10 @@ public class LoginController {
             cookie.setDomain("localhost");
             cookie.setPath("/");
 
+            response.addCookie(cookie);
+
             return "home";
+
         }else{
 
             model.addAttribute("personnel", new PersonnelEntity());
