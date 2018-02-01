@@ -41,5 +41,15 @@ public class PersonnelService implements PersonnelServiceInt{
 
         return false;
     }
+
+    @Override
+    public PersonnelEntity GetPersonnelById(Long id) {
+        return personnelRepository.findOne(id);
+    }
+
+    @Override
+    public List<PersonnelEntity> GetAll() {
+        return (List<PersonnelEntity>) personnelRepository.findAll();
+    }
 }
 

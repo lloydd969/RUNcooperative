@@ -2,8 +2,13 @@ package com.project.runcooperative.web.services.defaultinterface;
 
 import com.project.runcooperative.web.entities.PersonnelEntity;
 
+import java.util.List;
+
 public interface PersonnelServiceInt {
-    public void save(PersonnelEntity personnel);
-    public void delete();
-    public Boolean AuthenticatePersonnel(String email,String Password);
+    void save(PersonnelEntity personnel);
+    void delete();
+    Boolean AuthenticatePersonnel(String email,String Password);
+    PersonnelEntity GetPersonnelById(Long id);
+    List<PersonnelEntity> GetAll();
+
 }
